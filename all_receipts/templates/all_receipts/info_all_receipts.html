@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load my_filter %}
+
+{% block css_additional %}
+<link rel="stylesheet" href="{% static 'all_receipts/css/info.css'%}">
+{% endblock %}
+
+{% block title %}
+Рецепты для {{sign_receipts|upper}}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'includes/navbar.html' %}
+    <h1>{{descrition_receipts|split|first}}</h1>
+    {% if descrition_receipts is None %}
+        <h2>Неправильное название блюда {{sign_receipts}}</h2>
+    {% else %}
+        <h2>{{descrition_receipts|capfirst|safe}}</h2>
+    {% endif %}
+
+{% endblock %}

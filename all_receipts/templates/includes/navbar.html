@@ -1,0 +1,11 @@
+{% load my_filter %}
+
+<nav>
+    <a href="{% url 'all_receipts_index' %}">Главная</a>
+    <a href="https://www.edimdoma.ru/">Источник</a>
+
+    {% for eat, descrition_eat in eats.items %}
+    <a href="{% url 'eat-name' sign=eat %}">{{descrition_eat|split|first}}</a>
+    {% endfor %}
+
+</nav>

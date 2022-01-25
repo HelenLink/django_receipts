@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css_additional %}
+<link rel="stylesheet" href="{% static 'all_receipts/css/index.css'%}">
+{% endblock %}
+
+
+{% block title%}
+    Меню
+{% endblock %}
+
+{% block content %}
+
+<h1>Приложение рецепты</h1>
+
+    <ul>
+        {% for eat in eats %}
+            <li><a href="{% url 'eat-name' sign=eat %}">{{eat|title}}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
